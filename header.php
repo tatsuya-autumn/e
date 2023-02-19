@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1.0" />
   <meta name="format-detection" content="telephone=no" />
   <!-- meta情報 -->
-  <title>サイトタイトル</title>
+  <title>屋根プラス</title>
   <meta name="description" content="内容をディレクターに確認してください" />
   <meta name="keywords" content="内容をディレクターに確認してください" />
   <!-- ogp -->
@@ -22,6 +23,7 @@
   <!-- JavaScript -->
   <?php wp_head(); ?>
 </head>
+
 <body>
   <header class="header">
     <!-- ヘッダーを記載 -->
