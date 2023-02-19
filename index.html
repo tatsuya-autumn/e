@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <meta name="format-detection" content="telephone=no" />
+  <!-- meta情報 -->
+  <title>サイトタイトル</title>
+  <meta name="description" content="内容をディレクターに確認してください" />
+  <meta name="keywords" content="内容をディレクターに確認してください" />
+  <!-- ogp -->
+  <meta property="og:title" content="" />
+  <meta property="og:type" content="" />
+  <meta property="og:url" content="" />
+  <meta property="og:image" content="" />
+  <meta property="og:site_name" content="" />
+  <meta property="og:description" content="" />
+  <!-- ファビコン -->
+  <link rel="”icon”" href="faviconデータをディレクターに確認してください" />
+  <!-- css -->
+  <link rel="stylesheet" href="./assets/css/">
+  <!-- JavaScript -->
+</head>
+<body>
+
+  
+  <div class="inner">
+  <p class="test">変更のテスト</p>
+
+  <!-- NG -->
+  <p class="fs-16px">
+  <!-- OK -->
+  <p class="fs-normal">
+
+
+    <!-- ・マークアップは冗長化しないようにしながら、クラス化してください。
+  （h1,h2,h3,h4,img,p,a このようなタグ（主にinline要素のタグ）が親要素内に重複していない場合や、重複していても同じcssでスタイルをつけられる場合には、classをつけることを省略してください。） -->
+
+  <!-- NG -->
+  <div class="section-title"><h2 class="section-title-head">ページタイトル</h2><h3 class="section-title-discription">ディスクリプション</h3></div>　→　NG
+      
+  <!-- OK -->
+  <h2 class="section-title">ページタイトル</h2>　→　OK
+  <div id="section-title"><h2>ページタイトル</h2><h3>ディスクリプション</h3></div>　→　OK
+
+  <header class="header">
+    <!-- ヘッダーの内容 -->
+  </header>
+
+  <main class="main">
+    <div class="contents">
+      <div class="wrapper">
+        <div class="sub_contents"></div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <!-- フッターの内容 -->
+  </footer>
+
+</div>
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="./assets/js/script.js"></script>
+</body>
+</html>
