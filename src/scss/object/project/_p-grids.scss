@@ -1,0 +1,53 @@
+@use "global" as *;
+
+.p-grids {
+    display: grid; //★1
+
+    grid-template-columns: repeat(auto-fit, 48.24%);
+    row-gap: 24px;
+    column-gap: 2%;
+
+    justify-content: space-between;
+    // @include mq(md) {
+    //     grid-template-columns: repeat(auto-fit, minmax(rem(486), 1fr)); //★3
+    //     gap: rem(40) rem(32); //★2
+    // }
+}
+
+.p-grids__item {
+    padding: rem(32);
+    border-radius: rem(20);
+    border: 4px solid $b-yellow;
+    background: url(../img/common/voice-list-bg.png) no-repeat center / cover;
+
+}
+
+// .p-grid__img-wrapper picture {
+//     position: relative;
+//     display: block;
+// }
+
+// .p-grid__img-wrapper img {
+//     height: auto;
+// }
+
+.p-grid__img-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.p-grid__img-wrapper:before {
+    content: "";
+    display: block;
+    padding-top: 74.89%;
+    /* 高さと幅の比を16:9に固定。9/16*100=56.25 */
+}
+
+.p-grid__img-wrapper img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}

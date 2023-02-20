@@ -117,185 +117,80 @@
 <section class="p-visual cover-slide hover-darken"></section>
 <!-- 記事のループ処理開始 -->
 
-<section class="p-t-content">
-    <div class="p-t-content__inner">
+<section class="p-top-voice">
+    <div class="p-top-voice__inner">
         <div class="js-heading">
             <h2 class="p-t-content__title p-top__title">Contents</h2>
             <p class="p-t-content__text">4×4TRIGGERSは四駆のカスタムやキャンプなどの情報を発信しています。「パーツの取り付け方法」や「四駆キャンプのおすすめギア」などが気になる方はこちらへ</p>
         </div>
         <div class="p-t-contents-group">
-            <section class="p-t-contents-group-left">
-                <?php
-                $args = array(
-                    'post_type' => 'post',
-                    'posts_per_page' => 1,
-                    'offset' => 0,
-                );
-                $the_query = new WP_Query($args);
-                ?>
-                <?php if ($the_query->have_posts()) : ?>
 
-                    <div class="p-cards p-t-content__item-wrapper">
-                        <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
-
-                            <a href="<?php the_permalink(); ?>" class="p-t-contents-group-left__item" style="width:100%;">
-                                <picture class="p-card__img-wrapper cover-slide hover-darken">
-                                    <?php if (has_post_thumbnail()) { ?>
-                                        <?php the_post_thumbnail('large', ['alt' => get_the_title()]); ?>
-                                    <?php } else { ?>
-                                        <img src="<?php echo esc_url(IMG . 'top/content01.png'); ?>" alt="<?php echo esc_attr(get_the_title()); ?>">
-                                    <?php } ?>
-                                </picture>
-                                <div class="p-card__body">
-                                    <div class="p-card-list__date">
-                                        <div class="p-card-list-release__date">
-
-                                            <p class="p-card-list__category">
-                                                <?php
-                                                // カテゴリーのデータを取得
-                                                $cat = get_the_category();
-                                                $cat = $cat[0];
-
-                                                // カテゴリー名（どちらでもok）
-                                                echo $cat->name;
-
-
-                                                ?>
-                                            </p><time datetime="<?php the_time('Y-m-d'); ?>"><?php the_time('Y.m.d'); ?></time>
-                                        </div>
-
-                                    </div>
-                                    <h3 class="p-card-list__title"><?php the_title(); ?></h3>
-                                    <p class="p-card-list__text">
-                                        <?php
-                                        if (mb_strlen($post->post_content, 'UTF-8') > 63) {
-                                            $content = mb_substr(strip_tags($post->post_content), 0, 63, 'UTF-8');
-                                            echo $content . '…';
-                                        } else {
-                                            echo strip_tags($post->post_content);
-                                        }
-                                        ?></p>
-                                </div>
-                            </a>
-
-                        <?php endwhile; ?>
-
-                    </div>
-                <?php else : ?>
-                    <p>まだ投稿がありません。</p>
-                <?php endif; ?>
-                <?php wp_reset_postdata(); ?>
-            </section>
 
 
             <div class="p-t-contents-group-right p-card-list__item-wrapper">
-                <div class="p-t-contents-group-right-inner">
+                <div class="p-t-contents-group-right-inner l-inner">
                     <?php
-                    $args = array(
-                        'post_type' => 'post',
-                        'posts_per_page' => 3,
-                        'offset' => 1,
-                    );
-                    $the_query = new WP_Query($args);
+                    $args = [
+                        'post_type' => 'voice',
+                        'posts_per_page' => 4,
+                    ];
+                    $my_query = new WP_Query($args); ?>
+
+                    <?php if ($my_query->have_posts()) : // 投稿がある場合 
                     ?>
-                    <?php if ($the_query->have_posts()) : ?>
 
-                        <div>
+                        <div class="p-grids p-top-voice__contents">
 
-                            <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
+                            <?php while ($my_query->have_posts()) : $my_query->the_post(); ?>
 
-                                <!-- ▽ ループ開始 ▽ -->
-
-
-                                <a href="<?php echo get_permalink(); ?>" class="p-card-list__item">
-                                    <picture class="p-card-list__item-img cover-slide hover-darken">
-
+                                <div class="p-grids__item p-card">
+                                    <picture class="p-grid__img-wrapper">
                                         <?php if (has_post_thumbnail()) { ?>
                                             <?php the_post_thumbnail('large', ['alt' => get_the_title()]); ?>
                                         <?php } else { ?>
                                             <img src="<?php echo esc_url(IMG . 'top/content01.png'); ?>" alt="<?php echo esc_attr(get_the_title()); ?>">
                                         <?php } ?>
                                     </picture>
-                                    <div class="p-card-list__body">
-
-                                        <div class="p-card-list__date">
-                                            <div class="p-card-list-release__date">
-                                                <p class="p-card-list__category">
-                                                    <?php
-                                                    // カテゴリーのデータを取得
-                                                    $cat = get_the_category();
-                                                    $cat = $cat[0];
-
-                                                    // カテゴリー名（どちらでもok）
-                                                    echo $cat->name;
-
-
-                                                    ?>
-                                                </p>
-                                                <time datetime="<?php the_time('Y-m-d'); ?>"><?php the_time('Y.m.d'); ?></time>
-                                            </div>
-
-                                        </div>
-                                        <h3 class="p-card-list__title"><?php the_title(); ?></h3>
-                                        <p class="p-card-list__text">
+                                    <div class="p-grid__body">
+                                        <p class="p-grid__title"><?php the_excerpt(); ?></p>
+                                        <pp class="p-grid__title"><?php the_title(); ?>/
                                             <?php
-                                            if (mb_strlen($post->post_content, 'UTF-8') > 63) {
-                                                $content = mb_substr(strip_tags($post->post_content), 0, 63, 'UTF-8');
-                                                echo $content . '…';
-                                            } else {
-                                                echo strip_tags($post->post_content);
+                                            $taxonomy_terms = get_the_terms($post->ID, 'city');
+                                            if ($taxonomy_terms) {
+                                                echo '<span>' . $taxonomy_terms[0]->name . '</span>';
                                             }
-                                            ?></p>
-
+                                            ?>
+                                            </p>
                                     </div>
-                                </a>
-
-                                <!-- △ ループ終了 △ -->
-
+                                </div>
 
                             <?php endwhile; ?>
 
                         </div>
-                    <?php else : ?>
+
+                    <?php else : // 投稿がない場合
+                    ?>
+
                         <p>まだ投稿がありません。</p>
-                    <?php endif; ?>
-                    <?php wp_reset_postdata(); ?>
 
+                    <?php endif;
+                    wp_reset_postdata(); ?>
                 </div>
-                <a href="<?php url('/content/'); ?>" class="p-t-content__button c-button--black">詳しく見る</a>
+                <a href="" class="p-top-voice__button c-button--arrow">詳しく見る</a>
             </div>
         </div>
 
 
     </div>
 </section>
-<section class="p-t-sns" id="sns">
-    <div class="p-t-sns__inner">
-        <div class="js-heading">
-            <h2 class="p-t-sns__title p-top__title">SNS・Youtube</h2>
-            <div class="p-t-sns-top">
-                <p class="p-t-sns-top__text">4×4TRIGGERSでは、社員がYouTubeやInstagramで四駆の情報や魅力をお届け中。カスタムや四駆で遊ぶ楽しさが詰まっています。</p>
-                <div class="p-t-sns-top__button-inner">
-                    <a href="https://www.instagram.com/will.compass/" class="p-t-sns-top__button" target="_blank" rel="noopener noreferrer">
-                        <figure><img src="<?php echo esc_url(IMG . 'top/insta-icon.png'); ?>" alt="instagram"></figure>
-                    </a>
-                    <a href="https://www.youtube.com/@papatsume" class="p-t-sns-top__button" target="_blank" rel="noopener noreferrer">
-                        <figure><img src="<?php echo esc_url(IMG . 'top/YouTube-icon.png'); ?>" alt="youtube"></figure>
-                    </a>
-                </div>
-            </div>
-            <?php echo do_shortcode('[instagram-feed feed=1]'); ?>
 
-        </div>
 
-    </div>
-</section>
+<section class="p-top-blog">
+    <div class="p-top-blog__inner l-inner">
+        <div class="p-top-blog__heading">
+            <h2 class="p-top-blog__title" data-number="Blog"><span>ブログ</span></h2>
 
-<section class="p-t-news">
-    <div class="p-t-news__inner">
-        <div class="js-heading">
-            <h2 class="p-t-news__title p-top__title">News</h2>
-            <p class="p-t-news__text">4x4 TRIGGERSからのお知らせ、ニュースを配信します。弊社最新情報を知りたい方はこちらへ</p>
+            <a href="" class="p-top-blog__button c-button--arrow">すべての記事を見る</a>
         </div>
         <?php
         $args = [
@@ -307,7 +202,7 @@
         <?php if ($my_query->have_posts()) : // 投稿がある場合 
         ?>
 
-            <div class="p-cards p-t-content__item-wrapper">
+            <div class="p-cards p-top-blog__item-wrapper">
 
                 <?php while ($my_query->have_posts()) : $my_query->the_post(); ?>
 
@@ -339,7 +234,6 @@
         <?php endif;
         wp_reset_postdata(); ?>
 
-        <a href="<?php url('/news/'); ?>" class="p-t-news__button c-button--black">詳しく見る</a>
     </div>
 </section>
 

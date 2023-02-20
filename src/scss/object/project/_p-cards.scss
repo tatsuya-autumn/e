@@ -15,6 +15,7 @@
     width: 100%;
     margin-right: 0%;
     // margin-bottom: 30px;
+    position: relative;
 
     @include mq(md) {
 
@@ -22,11 +23,22 @@
         margin-inline: 2.8%;
         margin-bottom: 0px;
         display: block;
+        // border-right: 2px dashed #808080;
     }
 }
 
-.p-cards__item:nth-of-type(3n) {
-    margin-right: 0;
+.p-cards__item::after {
+    content: "";
+    position: absolute;
+    border-right: 2px dashed #808080;
+    right: -10%;
+    height: 100%;
+    top: 0;
+}
+
+.p-cards__item:last-child::after {
+    content: "";
+    border: none;
 }
 
 .p-card__img-wrapper {
