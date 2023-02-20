@@ -1,3 +1,5 @@
 @use "./base/*";
 @use "./module/*";
+
+@use "./object/**";
 @use "./page/" as *;

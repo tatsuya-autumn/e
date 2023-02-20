@@ -1,0 +1,80 @@
+@use "global" as *;
+.p-gnav {
+  display: flex;
+  height: inherit;
+}
+.p-gnav__items {
+  height: inherit;
+  display: flex;
+  align-items: center;
+}
+.p-gnav__item {
+  height: inherit;
+  display: flex;
+  align-items: center;
+}
+.p-gnav__item a {
+  display: flex;
+  height: inherit;
+  align-items: center;
+  position: relative;
+  font-family: $second-font-family;
+  color: $font-color-gray;
+}
+.p-gnav__item a {
+  margin-right: rem(56);
+}
+.p-gnav__item:last-child a {
+  margin-right: rem(0);
+}
+
+.p-gnav__item:nth-last-child(3) a {
+  margin-right: rem(69);
+}
+.p-gnav__item a::after {
+  position: absolute;
+  bottom: rem(23);
+  left: 0;
+  content: "";
+  width: 100%;
+  height: rem(2);
+  background: #000;
+  transform: scale(0, 1);
+  transform-origin: left top;
+  transition: transform 0.3s;
+}
+.p-gnav__item a:hover::after {
+  transform: scale(1, 1);
+}
+
+.p-gnav__item:last-child a::after {
+  content: none;
+}
+.p-gnav__item:nth-last-child(2) a::after {
+  content: none;
+}
+.p-gnav__item-box-bacground--white a {
+  height: rem(45);
+  border: 1px solid $main-color;
+  background-color: $white;
+  color: $main-color;
+}
+.p-gnav__item-box-bacground--white a {
+  padding-left: rem(40);
+  padding-right: rem(40);
+  margin-right: rem(20);
+}
+.p-gnav__item-box-bacground--white a:hover {
+  opacity: 0.8;
+}
+
+.p-gnav__item-box-bacground--black a {
+  height: rem(45);
+  border: 1px solid $main-color;
+  background-color: $main-color;
+  color: $white;
+}
+.p-gnav__item-box-bacground--black a {
+  padding-left: rem(48);
+  padding-right: rem(48);
+}

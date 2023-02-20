@@ -1,0 +1,39 @@
+@use "global" as *;
+
+.l-page__inner {
+  padding-bottom: rem(100);
+  @include mq(md) {
+    padding-bottom: rem(80);
+  }
+}
+
+.l-page__heading {
+  .l-page__heading-inner {
+    padding: rem(40);
+    @include mq(md) {
+      padding: $padding-sp;
+    }
+  }
+  h1 {
+    font-family: $second-font-family;
+    font-size: rem(60);
+    font-weight: $bold;
+    text-align: center;
+    @include mq(md) {
+      font-size: rem(40);
+    }
+  }
+  p {
+    display: block;
+    font-size: rem(20);
+    color: $gold;
+    font-weight: $bold;
+    @include mq(md) {
+      font-size: rem(16);
+    }
+  }
+}
+
+.l-page__heading-bgtexture {
+  background-image: url(../images/common/bgtexture.jpg);
+}

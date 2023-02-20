@@ -1,0 +1,128 @@
+@use "global" as *;
+//
+.p-header {
+  height: rem(80);
+  position: fixed;
+  z-index: 999;
+  width: 100%;
+  background-color: $white;
+  @include mq("md") {
+    height: rem(60);
+  }
+}
+.p-header__inner {
+  width: 100%;
+}
+.p-header__logo a {
+  height: inherit;
+  display: flex;
+  align-items: center;
+  @include mq("md") {
+    // width: vw(375, 108);
+  }
+}
+.p-header__inner {
+  height: inherit;
+  align-items: center;
+  padding-left: rem(20);
+  padding-right: rem(20);
+  justify-content: space-between;
+  display: flex;
+  @include mq("md") {
+    display: flex;
+    justify-content: space-between;
+    padding-left: rem(80);
+
+  }
+}
+.p-header__right {
+  height: inherit;
+  display: none;
+  align-items: center;
+  @include mq("md") {
+    display: flex;
+  }
+}
+.p-header__logo {
+  height: inherit;
+  width: rem(260);
+}
+.p-header__nav {
+  display: flex;
+  height: inherit;
+}
+.p-header__contact {
+  display: flex;
+  align-items: center;
+  height: inherit;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 rem(44);
+  color: #fff;
+  transition: color 0.2s;
+  z-index: 0;
+  position: relative;
+  @include mq("md") {
+    display: none;
+  }
+}
+.p-header__contact:hover {
+  color: #000;
+}
+.p-header__contact:before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: -1;
+  left: 0;
+  transition: opacity 0.2s;
+  background: transparent
+    linear-gradient(222deg, #e81a2b 0%, #d81828 0%, #e1192a 0%, #740d16 100%) 0%
+    0% no-repeat padding-box;
+}
+.p-header__contact:after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: -2;
+  left: 0;
+  background: transparent linear-gradient(234deg, #efefef 0%, #787878 100%) 0%
+    0% no-repeat padding-box;
+}
+.p-header__contact:hover:before {
+  opacity: 0;
+}
+.p-header__nav {
+  margin-right: rem(80);
+}
+.p-header__contact span {
+  display: block;
+  width: rem(140);
+  height: 1px;
+  position: absolute;
+  bottom: rem(-6);
+  background-color: #000;
+  position: relative;
+  transform: scale(0, 1);
+  transform-origin: top left;
+}
+.p-header__contact:hover span {
+  animation: arrow01 2s ease-in-out forwards;
+}
+.p-header__contact span::after {
+  content: "";
+  display: block;
+  width: 8px;
+  height: 9px;
+  border-right: 1px solid #000;
+  transform: rotate(-45deg) scale(1, 0);
+  transform-origin: right bottom;
+  position: absolute;
+  bottom: 2px;
+  right: 1px;
+}
+.p-header__contact:hover span::after {
+  animation: arrow02 2s ease-in-out forwards;
+}

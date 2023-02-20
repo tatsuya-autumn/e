@@ -1,0 +1,27 @@
+@use "global" as *;
+.p-404 {
+  padding-bottom: rem(120);
+}
+.p-404__title {
+  font-size: rem(40);
+  font-weight: 400;
+  text-align: center;
+  opacity: 0.6;
+  color: $black;
+  font-family: $second-font-family;
+  @include mq("md") {
+    font-size: rem(60);
+  }
+}
+.p-404__text {
+  text-align: center;
+  margin-top: rem(80);
+  @include mq("md") {
+    font-size: rem(20);
+  }
+}
+.p-404__outher {
+  margin-top: rem(80);
+  text-align: center;
+}
+//

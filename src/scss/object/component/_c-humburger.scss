@@ -1,0 +1,56 @@
+@use "global" as *;
+
+.c-hamburger {
+  z-index: 9999;
+  width: rem(21);
+  height: rem(80);
+  cursor: pointer;
+  position: relative;
+  display: block;
+
+  @include mq("md") {
+    display: none;
+  }
+}
+
+.c-hamburger span {
+  display: block;
+  height: rem(2);
+  width: rem(21);
+  background-color: #000;
+  transition: ease 0.3s;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.c-hamburger span:nth-child(1) {
+  transform: translateY(rem(8));
+}
+
+.c-hamburger span:nth-child(3) {
+  transform: translateY(rem(-8));
+}
+
+/*OPEN時の動き*/
+.c-hamburger.open span:nth-child(1) {
+  top: rem(-2);
+  transform: rotate(45deg);
+}
+
+.c-hamburger.open span:nth-child(2) {
+  transform: translateY(-50%);
+  opacity: 0;
+}
+
+.c-hamburger.open span:nth-child(3) {
+  top: rem(-2);
+  transform: rotate(-45deg);
+}
+
+.c-hamburger.open span {
+  background-color: $white;
+}
