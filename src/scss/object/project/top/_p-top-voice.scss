@@ -1,0 +1,14 @@
+@use "global" as *;
+
+.p-top-voice__inner {
+    padding-top: rem(100);
+    padding-bottom: rem(100);
+}
+
+.p-top-voice__contents {
+    margin-bottom: rem(56);
+}
+
+.p-top-voice__button {
+    margin-inline: auto;
+}

@@ -4,7 +4,7 @@
 // インナー幅設定
 ////////////////////
 // コンテンツのインナー幅（最も共通の幅が多い部分）
-$inner: 1320px;
+$inner: 1140px;
 // ※キャンパス幅ではなくインナーの幅を指す
 
 // 余白
@@ -16,9 +16,37 @@ $padding-sp: 20px;
 ////////////////////
 // フォント設定
 ////////////////////
+$base-font-family: "YuGothic", 'Yu Gothic', sans-serif;
+$second-font-family: "UtsukushiFONT";
+$en-font: 'DIN Alternate', sans-serif;
+$en-deco-font: "futura-medium-bt";
+$en-second-font: "Fresca-Regular";
 
-$base-font-family: "Noto sans JP", sans-serif;
-$second-font-family: "";
+@font-face {
+  font-family: "UtsukushiFONT";
+  src: url("../font/UtsukushiFONT.otf") format("OpenType"),
+    url("../font/02UtsukushiMincho.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "DINAlternate-Bold";
+  src: url("../font/DINAlternate-Bold.ttf") format("truetype"),
+
+}
+
+@font-face {
+  font-family: "futura medium bt.ttf";
+  src: url("../font/futura-medium-bt.ttf") format("truetype"),
+
+}
+
+@font-face {
+  font-family: "Fresca-Regular";
+  src: url("../font/Fresca-Regular.ttf") format("truetype"),
+
+}
+
+
 // ※検証ツールでしっかり反映されているか確認する
 
 body {
@@ -35,10 +63,19 @@ $bold: 700;
 ////////////////////
 
 //色指定（共通性のあるものは出来る限り指定すると良い）
-$black: #111;
+$black: #000;
 $white: #fff;
-
-$b-yellow: #EFF247;
+$b-yellow: #D9940E;
+$white: #fff;
+$main-color: #333333;
+$gray: #cccccc;
+// $blue: #000;
+// $yellow: #000;
+$main-background: #ebebeb;
+$gold: #a29016;
+$font-color-gray: #3d3d3d;
+$dark-gray: #292828;
+$base-bg: #0B0A4F;
 ////////////////////
 // メディアクエリとブレークポイントの設定
 ////////////////////
@@ -71,5 +108,3 @@ $mediaquerys: (
 @function rem($pixels) {
   @return math.div($pixels, 16) * 1rem;
 }
-
-
